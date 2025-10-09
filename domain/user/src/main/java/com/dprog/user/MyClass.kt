@@ -1,4 +1,3 @@
 package com.dprog.user
 
-class MyClass {
-}
+class MyClass

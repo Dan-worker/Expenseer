@@ -1,0 +1,18 @@
+root = true
+
+[*.{kt,kts}]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+
+# Compose-friendly: allow PascalCase when annotated with @Composable
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+# If you want to allow star imports, keep this. Otherwise delete it to enforce no-wildcard-imports.
+ktlint_standard_no-wildcard-imports = disabled
+
+# IDE-only hints (ktlint will ignore these without error)
+ij_kotlin_imports_layout = *,java,javax,kotlin,_
+ij_kotlin_name_count_to_use_star_import = 999
