@@ -12,10 +12,8 @@ plugins {
 
 subprojects {
     pluginManager.apply("org.jlleitschuh.gradle.ktlint")
-
-    // (Optional) Pin ktlint engine & config
-    extensions.configure<org.jlleitschuh.gradle.ktlint.KtlintExtension>("ktlint") {
-        version.set("1.2.1") // enables new .editorconfig keys
-        debug.set(true)
+    pluginManager.apply("io.gitlab.arturbosch.detekt")
+    dependencies {
+        "detektPlugins"("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
     }
 }
