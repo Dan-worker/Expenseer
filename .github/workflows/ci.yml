@@ -1,4 +1,4 @@
-name: CI (build + lint + unit tests)
+name: CI (build + lint + unit tests + coverage)
 
 on:
   push:
@@ -39,10 +39,10 @@ jobs:
             **/build/reports/detekt/**
 
   build-test:
-    name: Build & Unit tests
+    name: Build, Unit tests & Coverage
     runs-on: ubuntu-latest
     needs: validate-wrapper
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -51,15 +51,23 @@ jobs:
           java-version: 17
           cache: gradle
       - run: chmod +x ./gradlew
+
+      # Build + run ALL unit tests (JVM modules: 'test', Android modules: 'testDebugUnitTest')
       - name: Build (assembleDebug) + unit tests
         run: |
-          ./gradlew clean assembleDebug testDebugUnitTest --stacktrace
+          ./gradlew clean assembleDebug test testDebugUnitTest --stacktrace
+
+      # Generate merged JaCoCo coverage (relies on the root 'jacocoMergedReport' task you added)
+      - name: Generate merged coverage (JaCoCo)
+        run: ./gradlew jacocoMergedReport --stacktrace
+
       - name: Upload APK artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+
       - name: Upload test reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -68,3 +76,12 @@ jobs:
           path: |
             **/build/reports/tests/**
             **/build/test-results/**
+
+      - name: Upload coverage report (merged)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-merged
+          path: |
+            **/build/reports/jacoco/merged/html/**
+            **/build/reports/jacoco/merged/merged.xml

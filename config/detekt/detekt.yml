@@ -14,9 +14,9 @@ style:
     active: false
 
 formatting:
-  active: true
-  android: true
-  ImportOrdering:
+  active: false
+
+naming:
+  FunctionNaming:
     active: true
-  NoWildcardImports:
-    active: false
+    ignoreAnnotated: [ Composable ]  # keeps PascalCase composables like ExpenseerTheme()
