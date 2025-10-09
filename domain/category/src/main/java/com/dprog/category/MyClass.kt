@@ -1,4 +1,3 @@
 package com.dprog.category
 
-class MyClass {
-}
+class MyClass

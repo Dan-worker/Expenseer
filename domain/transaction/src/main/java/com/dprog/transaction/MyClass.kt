@@ -1,4 +1,3 @@
 package com.dprog.transaction
 
-class MyClass {
-}
+class MyClass
