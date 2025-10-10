@@ -11,4 +11,8 @@ class MathsTest {
     @Test fun divide_work() {
         assertEquals(2, Maths.divide(4, 2))
     }
+
+    @Test fun multiply_works() {
+        assertEquals(6, Maths.multiply(2, 3))
+    }
 }
