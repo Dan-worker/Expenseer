@@ -18,6 +18,7 @@ subprojects {
     // --- Apply plugins ---
     pluginManager.apply("org.jlleitschuh.gradle.ktlint")
     pluginManager.apply("io.gitlab.arturbosch.detekt")
+    pluginManager.apply("jacoco")
 
     // --- Detekt setup ---
     dependencies {
