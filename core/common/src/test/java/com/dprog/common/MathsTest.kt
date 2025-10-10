@@ -8,4 +8,3 @@ class MathsTest {
         assertEquals(5, Maths.add(2, 3))
     }
 }
-
