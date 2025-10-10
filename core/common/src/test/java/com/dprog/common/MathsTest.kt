@@ -7,4 +7,8 @@ class MathsTest {
     @Test fun add_works() {
         assertEquals(5, Maths.add(2, 3))
     }
+
+    @Test fun divide_work() {
+        assertEquals(2, Maths.divide(4, 2))
+    }
 }

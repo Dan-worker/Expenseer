@@ -13,10 +13,41 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gradle/wrapper-validation-action@v2
 
+  # 🔒 Guard PR base to enforce your GitFlow:
+  # feature/* -> dev, and dev -> main (blocks anything else)
+  guard-pr-base:
+    name: Guard PR base
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Enforce GitFlow base rules
+        shell: bash
+        run: |
+          BASE="${{ github.event.pull_request.base.ref }}"
+          HEAD="${{ github.event.pull_request.head.ref }}"
+
+          case "$BASE" in
+            main)
+              if [ "$HEAD" != "dev" ]; then
+                echo "❌ Only PRs from 'dev' can be merged into 'main' (got: '$HEAD' -> '$BASE')."
+                exit 1
+              fi
+              ;;
+            dev)
+              if [[ ! "$HEAD" =~ ^feature/ ]]; then
+                echo "❌ Only PRs from 'feature/*' can be merged into 'dev' (got: '$HEAD' -> '$BASE')."
+                exit 1
+              fi
+              ;;
+            *)
+              echo "ℹ️ No guard for base '$BASE'."
+              ;;
+          esac
+
   lint:
     name: Ktlint & Detekt
     runs-on: ubuntu-latest
-    needs: validate-wrapper
+    needs: [validate-wrapper, guard-pr-base]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -41,7 +72,7 @@ jobs:
   build-test:
     name: Build, Unit tests & Coverage
     runs-on: ubuntu-latest
-    needs: validate-wrapper
+    needs: [validate-wrapper, guard-pr-base]
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -52,12 +83,10 @@ jobs:
           cache: gradle
       - run: chmod +x ./gradlew
 
-      # Build + run ALL unit tests (JVM modules: 'test', Android modules: 'testDebugUnitTest')
       - name: Build (assembleDebug) + unit tests
         run: |
-          ./gradlew clean assembleDebug test testDebugUnitTest --stacktrace
+          ./gradlew clean assembleDebug test testDebugUnitTest testReleaseUnitTest --stacktrace
 
-      # Generate merged JaCoCo coverage (relies on the root 'jacocoMergedReport' task you added)
       - name: Generate merged coverage (JaCoCo)
         run: ./gradlew jacocoMergedReport --stacktrace
 
@@ -67,6 +96,7 @@ jobs:
         with:
           name: app-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: warn
 
       - name: Upload test reports
         if: always()
@@ -76,6 +106,7 @@ jobs:
           path: |
             **/build/reports/tests/**
             **/build/test-results/**
+          if-no-files-found: warn
 
       - name: Upload coverage report (merged)
         if: always()
@@ -85,3 +116,4 @@ jobs:
           path: |
             **/build/reports/jacoco/merged/html/**
             **/build/reports/jacoco/merged/merged.xml
+          if-no-files-found: warn
