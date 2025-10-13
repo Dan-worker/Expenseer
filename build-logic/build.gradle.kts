@@ -25,10 +25,22 @@ gradlePlugin {
             id = "expenseer.kotlin.library"
             implementationClass = "com.dprog.expenseer.KotlinLibraryConventionPlugin"
         }
+        create("androidCompose") {
+            id = "expenseer.android.compose"
+            implementationClass = "com.dprog.expenseer.AndroidComposeConventionPlugin"
+        }
+        create("androidRoom") {
+            id = "expenseer.android.room"
+            implementationClass = "com.dprog.expenseer.AndroidRoomConventionPlugin"
+        }
+        create("kotlinKoin") {
+            id = "expenseer.kotlin.koin"
+            implementationClass = "com.dprog.expenseer.KotlinKoinConventionPlugin"
+        }
     }
 }
 
 dependencies {
     implementation("com.android.tools.build:gradle:8.13.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20")
 }

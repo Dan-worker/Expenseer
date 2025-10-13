@@ -1,12 +1,11 @@
 plugins {
-    // Apply the Android library convention plugin, which sets up common
-    // Android and Kotlin configuration for library modules.
     id("expenseer.android.library")
+    id("expenseer.android.compose")
+    id("expenseer.kotlin.koin")
 }
 
 android {
     namespace = "com.dprog.mylibrary"
-    // compileSdk and minSdk are provided by the convention plugin.
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -21,17 +20,12 @@ android {
             )
         }
     }
-    // Java and Kotlin compiler options are configured by the convention plugin.
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
     // Transaction feature depends on shared UI, the transaction domain and
     // category domain to present and manage transactions with their

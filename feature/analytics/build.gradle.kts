@@ -1,7 +1,7 @@
 plugins {
-    // Apply the Android library convention plugin, which sets up common
-    // Android and Kotlin configuration for library modules.
     id("expenseer.android.library")
+    id("expenseer.android.compose")
+    id("expenseer.kotlin.koin")
 }
 
 android {
@@ -21,17 +21,12 @@ android {
             )
         }
     }
-    // Java and Kotlin compiler options are configured by the convention plugin.
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
     // Features depend on the domain layers that provide business logic for
     // categories, transactions and users, as well as shared UI components.
