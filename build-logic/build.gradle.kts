@@ -25,6 +25,10 @@ gradlePlugin {
             id = "expenseer.kotlin.library"
             implementationClass = "com.dprog.expenseer.KotlinLibraryConventionPlugin"
         }
+        create("androidCompose") {
+            id = "expenseer.android.compose"
+            implementationClass = "com.dprog.expenseer.AndroidComposeConventionPlugin"
+        }
     }
 }
 
