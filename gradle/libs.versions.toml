@@ -12,10 +12,12 @@ appcompat = "1.7.1"
 material = "1.13.0"
 jetbrainsKotlinJvm = "2.2.20"
 ktlint = "13.1.0"
-navigation = "2.9.5"
 room = "2.8.2"
 datastore = "1.1.7"
-kspPlugin = "2.2.20-2.0.2"
+kspPlugin = "2.2.20-2.0.4"
+koin = "4.1.1"
+coroutines = "1.10.2"
+lifecycleViewModel = "2.9.4"
 firebaseBom = "34.4.0"
 firebasePlugin = "4.4.4"
 navigation3 = "1.0.0-alpha11"
@@ -51,6 +53,19 @@ androidx-room-compiler = { group = "androidx.room", name = "room-compiler", vers
 
 # DataStore preferences dependency for storing key–value pairs asynchronously.
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+## Lifecycle ViewModel dependencies. Provide coroutine support and Compose adapters for state holders.
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewModel" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewModel" }
+
+## Koin dependency injection libraries.
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+
+## Coroutines dependencies for asynchronous programming.
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core-jvm", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
 # Firebase dependencies. Versions are pulled from the BOM; individual libraries
 # intentionally omit explicit versions so they inherit from the BOM. When

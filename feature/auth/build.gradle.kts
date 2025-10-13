@@ -1,6 +1,7 @@
 plugins {
     id("expenseer.android.library")
     id("expenseer.android.compose")
+    id("expenseer.kotlin.koin")
 }
 
 android {

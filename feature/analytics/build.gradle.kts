@@ -1,8 +1,7 @@
 plugins {
-    // Apply the Android library convention plugin, which sets up common
-    // Android and Kotlin configuration for library modules.
     id("expenseer.android.library")
     id("expenseer.android.compose")
+    id("expenseer.kotlin.koin")
 }
 
 android {

@@ -1,7 +1,8 @@
 plugins {
     id("expenseer.android.application")
     id("expenseer.android.compose")
-    alias(libs.plugins.google.services)
+    id("expenseer.kotlin.koin")
+//    alias(libs.plugins.google.services)
 }
 
 android {
@@ -40,7 +41,7 @@ dependencies {
     implementation(project(":feature:transaction"))
     implementation(project(":feature:analytics"))
 
-    // --- Firebase ---
+/*    // --- Firebase ---
     implementation(platform(libs.firebase.bom))
     // Add Firebase Auth for user authentication.
     implementation(libs.firebase.auth.ktx)
@@ -48,5 +49,5 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     // Include analytics and crash reporting.
     implementation(libs.firebase.analytics.ktx)
-    implementation(libs.firebase.crashlytics.ktx)
+    implementation(libs.firebase.crashlytics.ktx)*/
 }

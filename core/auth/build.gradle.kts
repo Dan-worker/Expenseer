@@ -1,12 +1,10 @@
 plugins {
-    // Apply the Android library convention plugin, which sets up common
-    // Android and Kotlin configuration for library modules.
     id("expenseer.android.library")
+    id("expenseer.kotlin.koin")
 }
 
 android {
     namespace = "com.dprog.auth"
-    // compileSdk and minSdk are provided by the convention plugin.
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -21,7 +19,6 @@ android {
             )
         }
     }
-    // Java and Kotlin compiler options are configured by the convention plugin.
 }
 
 dependencies {
