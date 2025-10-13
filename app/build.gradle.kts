@@ -1,17 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    // Use the custom convention plugin for Android application modules. This plugin
+    // automatically applies the standard Android and Kotlin plugins and configures
+    // compileSdk, minSdk, targetSdk and compiler options.
+    id("expenseer.android.application")
+    // Compose support is still applied explicitly because only the app module
+    // uses Jetpack Compose in this project. Keeping it here avoids enabling
+    // Compose unnecessarily for other modules.
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.dprog.expenseer"
-    compileSdk = 36
-
+    // compileSdk, minSdk and targetSdk are configured centrally by the convention plugin.
     defaultConfig {
         applicationId = "com.dprog.expenseer"
-        minSdk = 28
-        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -27,13 +29,8 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    // Compiler options and compose enablement are configured by the convention plugin.
+    // Compose is enabled explicitly here via the buildFeatures block.
     buildFeatures {
         compose = true
     }
@@ -56,4 +53,13 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Include the feature modules and shared UI layer in the application. These
+    // dependencies bring in the screens and business logic defined in the
+    // feature and domain layers.
+    implementation(project(":core:ui"))
+    implementation(project(":feature:auth"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:transaction"))
+    implementation(project(":feature:analytics"))
 }
