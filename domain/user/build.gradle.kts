@@ -5,4 +5,3 @@ plugins {
     id("expenseer.kotlin.library")
 }
 // Java and Kotlin compiler options are configured by the convention plugin.
-
