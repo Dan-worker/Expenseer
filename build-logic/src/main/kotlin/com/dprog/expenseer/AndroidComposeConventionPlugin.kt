@@ -69,8 +69,9 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
         val uiTooling = libs.findLibrary("androidx-compose-ui-tooling").get()
         val uiTestJunit4 = libs.findLibrary("androidx-compose-ui-test-junit4").get()
         val uiTestManifest = libs.findLibrary("androidx-compose-ui-test-manifest").get()
+        val junit4 = libs.findLibrary("junit").get()
 
-        // Navigation (Navigation 3). These dependencies allow building navigation graphs
+        // Navigation. These dependencies allow building navigation graphs
         // declaratively within Compose. The versions are defined in the version catalog.
         val nav3Runtime = libs.findLibrary("androidx-navigation3-runtime").get()
         val nav3Ui = libs.findLibrary("androidx-navigation3-ui").get()
@@ -121,6 +122,9 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
             // Tooling for preview and inspection
             add("debugImplementation", uiTooling)
             add("debugImplementation", uiTestManifest)
+
+            // Unit test dependencies
+            add("testImplementation", junit4)
         }
     }
 }
