@@ -1,13 +1,8 @@
 plugins {
-    id("java-library")
-    alias(libs.plugins.jetbrains.kotlin.jvm)
+    // Apply the convention plugin for pure Kotlin/JVM modules. This plugin
+    // applies the java-library and Kotlin JVM plugins and configures
+    // compile options to use Java 11.
+    id("expenseer.kotlin.library")
 }
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-    }
-}
+// Java and Kotlin compiler options are configured by the convention plugin.
+

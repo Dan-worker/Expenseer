@@ -1,15 +1,13 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    // Apply the Android library convention plugin, which sets up common
+    // Android and Kotlin configuration for library modules.
+    id("expenseer.android.library")
 }
 
 android {
     namespace = "com.dprog.common"
-    compileSdk = 36
-
+    // compileSdk and minSdk are provided by the convention plugin.
     defaultConfig {
-        minSdk = 28
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -23,13 +21,7 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    // Java and Kotlin compiler options are configured by the convention plugin.
 }
 
 dependencies {
