@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * this module is empty. Populate it with your auth ViewModels and
  * related dependencies when the feature is built.
  */
-val authFeatureModule: Module = module {
-    // Register authentication feature dependencies here.
-}
+val authFeatureModule: Module =
+    module {
+        // Register authentication feature dependencies here.
+    }

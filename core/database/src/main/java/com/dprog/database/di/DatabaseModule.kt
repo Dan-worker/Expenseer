@@ -12,6 +12,7 @@ import org.koin.dsl.module
  * application to compile and provides a clear location for future
  * bindings.
  */
-val databaseModule: Module = module {
-    // Register database dependencies here when they exist.
-}
+val databaseModule: Module =
+    module {
+        // Register database dependencies here when they exist.
+    }

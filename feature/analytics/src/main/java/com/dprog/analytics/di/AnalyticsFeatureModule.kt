@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * implemented yet, the module remains empty. Add definitions as
  * the feature develops.
  */
-val analyticsFeatureModule: Module = module {
-    // Register analytics feature dependencies here.
-}
+val analyticsFeatureModule: Module =
+    module {
+        // Register analytics feature dependencies here.
+    }

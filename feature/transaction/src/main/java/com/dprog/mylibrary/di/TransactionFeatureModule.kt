@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * so the module is empty. When transaction UI is added, register
  * its dependencies here.
  */
-val transactionFeatureModule: Module = module {
-    // Register transaction feature dependencies here when available.
-}
+val transactionFeatureModule: Module =
+    module {
+        // Register transaction feature dependencies here when available.
+    }

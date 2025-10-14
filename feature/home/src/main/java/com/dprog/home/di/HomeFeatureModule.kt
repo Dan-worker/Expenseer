@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * deliberately empty. When you add home screen logic, register it
  * here as a factory or singleton.
  */
-val homeFeatureModule: Module = module {
-    // Register home feature dependencies here when implemented.
-}
+val homeFeatureModule: Module =
+    module {
+        // Register home feature dependencies here when implemented.
+    }

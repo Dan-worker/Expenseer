@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * implemented. Populate it with `factory` or `single` definitions
  * when user domain services are added.
  */
-val userDomainModule: Module = module {
-    // Register user domain use cases here when available.
-}
+val userDomainModule: Module =
+    module {
+        // Register user domain use cases here when available.
+    }

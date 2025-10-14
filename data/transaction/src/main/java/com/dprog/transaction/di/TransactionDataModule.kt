@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * now allows the project to compile and signals where transaction
  * specific data classes should be registered.
  */
-val transactionDataModule: Module = module {
-    // Add transaction data implementations here when implemented.
-}
+val transactionDataModule: Module =
+    module {
+        // Add transaction data implementations here when implemented.
+    }

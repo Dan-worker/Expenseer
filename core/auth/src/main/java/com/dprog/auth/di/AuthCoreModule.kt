@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * implementation exists yet, the module remains empty. Populate it
  * with singletons or factories when authentication classes are added.
  */
-val authCoreModule: Module = module {
-    // Bind core authentication dependencies here when implemented.
-}
+val authCoreModule: Module =
+    module {
+        // Bind core authentication dependencies here when implemented.
+    }

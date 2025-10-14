@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * application grows, register your category use cases here with
  * `factory` or `single` definitions as appropriate.
  */
-val categoryDomainModule: Module = module {
-    // Register category domain use cases here when implemented.
-}
+val categoryDomainModule: Module =
+    module {
+        // Register category domain use cases here when implemented.
+    }

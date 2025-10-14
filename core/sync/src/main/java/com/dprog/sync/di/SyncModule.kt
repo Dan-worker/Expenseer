@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * the module is empty. Add your sync services or managers here when
  * they are created.
  */
-val syncModule: Module = module {
-    // Register sync dependencies here when available.
-}
+val syncModule: Module =
+    module {
+        // Register sync dependencies here when available.
+    }

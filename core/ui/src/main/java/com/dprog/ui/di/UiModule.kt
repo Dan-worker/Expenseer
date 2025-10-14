@@ -12,6 +12,7 @@ import org.koin.dsl.module
  * dependencies are introduced they can be injected without modifying
  * the application entry point.
  */
-val uiModule: Module = module {
-    // Define UI dependencies here when they become available.
-}
+val uiModule: Module =
+    module {
+        // Define UI dependencies here when they become available.
+    }

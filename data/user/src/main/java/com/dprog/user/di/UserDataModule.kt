@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * currently empty. Populate it with concrete implementations as
  * they are introduced.
  */
-val userDataModule: Module = module {
-    // Add user data implementations here when available.
-}
+val userDataModule: Module =
+    module {
+        // Add user data implementations here when available.
+    }

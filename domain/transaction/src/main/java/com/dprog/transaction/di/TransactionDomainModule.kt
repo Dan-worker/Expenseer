@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * empty. Add factories or singletons for your use cases here when they
  * are created.
  */
-val transactionDomainModule: Module = module {
-    // Register transaction domain use cases here.
-}
+val transactionDomainModule: Module =
+    module {
+        // Register transaction domain use cases here.
+    }

@@ -12,6 +12,7 @@ import org.koin.dsl.module
  * logging helpers) they should be registered here as singletons or
  * factories. Leaving the module empty preserves the wiring structure.
  */
-val commonModule: Module = module {
-    // Define common dependencies here when they become available.
-}
+val commonModule: Module =
+    module {
+        // Define common dependencies here when they become available.
+    }

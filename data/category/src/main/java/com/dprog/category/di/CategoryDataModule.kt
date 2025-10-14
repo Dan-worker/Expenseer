@@ -11,6 +11,7 @@ import org.koin.dsl.module
  * layer exists, so the module is empty. Register concrete
  * implementations here as they are created.
  */
-val categoryDataModule: Module = module {
-    // Add category data implementations here.
-}
+val categoryDataModule: Module =
+    module {
+        // Add category data implementations here.
+    }

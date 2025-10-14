@@ -29,28 +29,26 @@ import org.koin.core.module.Module
  * rather than relying on reflection, we avoid hidden wiring and make it
  * obvious which modules participate in dependency injection.
  */
-val appModules: List<Module> = listOf(
-    // Core modules
-    commonModule,
-    databaseModule,
-    networkModule,
-    authCoreModule,
-    syncModule,
-    uiModule,
-
-    // Data modules
-    categoryDataModule,
-    transactionDataModule,
-    userDataModule,
-
-    // Domain modules
-    categoryDomainModule,
-    transactionDomainModule,
-    userDomainModule,
-
-    // Feature modules
-    analyticsFeatureModule,
-    authFeatureModule,
-    homeFeatureModule,
-    transactionFeatureModule,
-)
+val appModules: List<Module> =
+    listOf(
+        // Core modules
+        commonModule,
+        databaseModule,
+        networkModule,
+        authCoreModule,
+        syncModule,
+        uiModule,
+        // Data modules
+        categoryDataModule,
+        transactionDataModule,
+        userDataModule,
+        // Domain modules
+        categoryDomainModule,
+        transactionDomainModule,
+        userDomainModule,
+        // Feature modules
+        analyticsFeatureModule,
+        authFeatureModule,
+        homeFeatureModule,
+        transactionFeatureModule,
+    )
