@@ -22,6 +22,8 @@ firebaseBom = "34.4.0"
 firebasePlugin = "4.4.4"
 navigation3 = "1.0.0-alpha11"
 lifecycleViewmodelNavigation3 = "2.10.0-alpha05"
+kotlinxSerialization = "1.9.0"
+navigation = "2.9.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +44,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 # Jetpack Navigation Compose for declarative navigation.
+androidx-navigation-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
 androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "navigation3" }
 androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3" }
 androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNavigation3" }
@@ -67,6 +70,9 @@ koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compos
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core-jvm", version.ref = "coroutines" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
+## Kotlinx Serialization for type-safe navigation
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
 # Firebase dependencies. Versions are pulled from the BOM; individual libraries
 # intentionally omit explicit versions so they inherit from the BOM. When
 # adding Firebase modules as dependencies, always include the BOM via
@@ -81,6 +87,7 @@ firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-cra
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

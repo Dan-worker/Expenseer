@@ -8,7 +8,7 @@ import com.dprog.category.di.categoryDomainModule
 import com.dprog.common.di.commonModule
 import com.dprog.database.di.databaseModule
 import com.dprog.home.di.homeFeatureModule
-import com.dprog.mylibrary.di.transactionFeatureModule
+import com.dprog.transaction.di.transactionFeatureModule
 import com.dprog.network.di.networkModule
 import com.dprog.sync.di.syncModule
 import com.dprog.transaction.di.transactionDataModule

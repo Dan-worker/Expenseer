@@ -1,17 +1,18 @@
 package com.dprog.analytics.di
 
+import com.dprog.analytics.navigation.AnalyticsNavGraph
+import com.dprog.ui.navigation.FeatureNavGraph
 import org.koin.core.module.Module
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 /**
  * Koin module for the `feature:analytics` component.
  *
  * Bindings for analytics feature ViewModels and other UI layer
- * abstractions belong here. Since the analytics feature is not
- * implemented yet, the module remains empty. Add definitions as
- * the feature develops.
+ * abstractions belong here.
  */
 val analyticsFeatureModule: Module =
     module {
-        // Register analytics feature dependencies here.
+        single<FeatureNavGraph>(named("analytics")) { AnalyticsNavGraph() }
     }

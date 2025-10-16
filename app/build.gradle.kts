@@ -2,6 +2,7 @@ plugins {
     id("expenseer.android.application")
     id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
+    alias(libs.plugins.kotlin.serialization)
 //    alias(libs.plugins.google.services)
 }
 

@@ -1,17 +1,17 @@
 package com.dprog.home.di
 
+import com.dprog.home.navigation.HomeNavGraph
+import com.dprog.ui.navigation.FeatureNavGraph
 import org.koin.core.module.Module
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 /**
  * Koin module for the `feature:home` component.
  *
- * Home screen ViewModels and supporting classes should be bound in this
- * module. As the home feature does not yet exist, the module is
- * deliberately empty. When you add home screen logic, register it
- * here as a factory or singleton.
+ * Home screen ViewModels and supporting classes should be bound in this module.
  */
 val homeFeatureModule: Module =
     module {
-        // Register home feature dependencies here when implemented.
+        single<FeatureNavGraph>(named("home")) { HomeNavGraph() }
     }

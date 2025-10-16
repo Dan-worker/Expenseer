@@ -2,6 +2,7 @@ plugins {
     id("expenseer.android.library")
     id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
