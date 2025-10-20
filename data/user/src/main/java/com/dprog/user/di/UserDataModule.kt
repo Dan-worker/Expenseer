@@ -8,6 +8,7 @@ import org.koin.dsl.module
 /**
  * Koin module for the `data:user` component.
  */
-val userDataModule: Module = module {
-    single<UserRepository> { UserRepositoryImpl(get()) }
-}
+val userDataModule: Module =
+    module {
+        single<UserRepository> { UserRepositoryImpl(get()) }
+    }

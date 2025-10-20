@@ -8,6 +8,7 @@ import org.koin.dsl.module
 /**
  * Koin module for the `data:transaction` component.
  */
-val transactionDataModule: Module = module {
-    single<TransactionRepository> { TransactionRepositoryImpl(get()) }
-}
+val transactionDataModule: Module =
+    module {
+        single<TransactionRepository> { TransactionRepositoryImpl(get()) }
+    }

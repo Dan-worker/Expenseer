@@ -15,6 +15,6 @@ import org.koin.dsl.module
  */
 val userDomainModule: Module =
     module {
-     single { CreateUserUseCase(get()) }
-     single { LoginUserUseCase(get()) }
+        single { CreateUserUseCase(get()) }
+        single { LoginUserUseCase(get()) }
     }

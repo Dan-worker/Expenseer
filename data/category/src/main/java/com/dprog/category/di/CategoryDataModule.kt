@@ -8,6 +8,7 @@ import org.koin.dsl.module
 /**
  * Koin module for the `data:category` component.
  */
-val categoryDataModule: Module = module {
-    single<CategoryRepository> { CategoryRepositoryImpl(get()) }
-}
+val categoryDataModule: Module =
+    module {
+        single<CategoryRepository> { CategoryRepositoryImpl(get()) }
+    }
