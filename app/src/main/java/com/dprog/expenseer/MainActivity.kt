@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.dprog.expenseer.navigation.AppNavigationHost
-import com.dprog.expenseer.ui.theme.ExpenseerTheme
+import com.dprog.ui.theme.ExpenseerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
