@@ -52,5 +52,5 @@ val appModules: List<Module> =
         authFeatureModule,
         homeFeatureModule,
         transactionFeatureModule,
-        settingsFeatureModule
+        settingsFeatureModule,
     )

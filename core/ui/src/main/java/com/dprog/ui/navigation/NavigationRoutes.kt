@@ -44,5 +44,3 @@ data class CategoryAnalyticsRoute(
 // Settings
 @Serializable
 object SettingsRoute
-
-

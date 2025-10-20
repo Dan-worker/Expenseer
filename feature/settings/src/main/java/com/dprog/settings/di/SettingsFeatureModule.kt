@@ -5,6 +5,7 @@ import com.dprog.ui.navigation.FeatureNavGraph
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val settingsFeatureModule = module {
-    single<FeatureNavGraph>(named("settings")) { SettingsNavGraph() }
-}
+val settingsFeatureModule =
+    module {
+        single<FeatureNavGraph>(named("settings")) { SettingsNavGraph() }
+    }

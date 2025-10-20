@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.dprog.ui.navigation.BottomNavigationBar
+import com.dprog.ui.navigation.BottomNavBar
 import com.dprog.ui.navigation.FeatureNavGraph
 import com.dprog.ui.navigation.LoginRoute
 import org.koin.compose.koinInject
@@ -26,7 +26,7 @@ fun AppNavigationHost(modifier: Modifier = Modifier) {
     // Scaffold with bottom bar
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(navController = navController)
+            BottomNavBar(navController = navController)
         },
         modifier = modifier,
     ) { innerPadding ->
