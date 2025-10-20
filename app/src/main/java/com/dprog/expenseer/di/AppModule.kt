@@ -8,11 +8,12 @@ import com.dprog.category.di.categoryDomainModule
 import com.dprog.common.di.commonModule
 import com.dprog.database.di.databaseModule
 import com.dprog.home.di.homeFeatureModule
-import com.dprog.transaction.di.transactionFeatureModule
 import com.dprog.network.di.networkModule
+import com.dprog.settings.di.settingsFeatureModule
 import com.dprog.sync.di.syncModule
 import com.dprog.transaction.di.transactionDataModule
 import com.dprog.transaction.di.transactionDomainModule
+import com.dprog.transaction.di.transactionFeatureModule
 import com.dprog.ui.di.uiModule
 import com.dprog.user.di.userDataModule
 import com.dprog.user.di.userDomainModule
@@ -51,4 +52,5 @@ val appModules: List<Module> =
         authFeatureModule,
         homeFeatureModule,
         transactionFeatureModule,
+        settingsFeatureModule
     )

@@ -12,4 +12,3 @@ import androidx.navigation.NavHostController
 interface FeatureNavGraph {
     fun NavGraphBuilder.registerGraph(navController: NavHostController)
 }
-

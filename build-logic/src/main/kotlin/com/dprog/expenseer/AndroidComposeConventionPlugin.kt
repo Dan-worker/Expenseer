@@ -64,6 +64,7 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
         val uiTestJunit4 = libs.findLibrary("androidx-compose-ui-test-junit4").get()
         val uiTestManifest = libs.findLibrary("androidx-compose-ui-test-manifest").get()
         val junit4 = libs.findLibrary("junit").get()
+        val materialIcons = libs.findLibrary("androidx-compose-material-icons-extended").get()
 
         // Navigation. These dependencies allow building navigation graphs
         // declaratively within Compose. The versions are defined in the version catalog.
@@ -93,6 +94,7 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
             add("implementation", graphics)
             add("implementation", preview)
             add("implementation", material3)
+            add("implementation", materialIcons)
 
             // Navigation and lifecycle dependencies
             add("implementation", nav)
