@@ -1,18 +1,21 @@
 package com.dprog.database.di
 
-import org.koin.core.module.Module
+import androidx.room.Room
+import com.dprog.database.AppDatabase
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-/**
- * Koin module for the `core:database` component.
- *
- * Use this module to register Room database instances, DAOs and other
- * persistence‑related dependencies. It is intentionally empty until
- * database classes are implemented. Defining it now allows the
- * application to compile and provides a clear location for future
- * bindings.
- */
-val databaseModule: Module =
+val databaseModule =
     module {
-        // Register database dependencies here when they exist.
+        single {
+            Room
+                .databaseBuilder(
+                    androidContext(),
+                    AppDatabase::class.java,
+                    "expenseer.db",
+                ).build()
+        }
+        single { get<AppDatabase>().transactionDao() }
+        single { get<AppDatabase>().categoryDao() }
+        single { get<AppDatabase>().userDao() }
     }

@@ -1,5 +1,10 @@
 package com.dprog.transaction.di
 
+import com.dprog.transaction.usecase.AddTransactionUseCase
+import com.dprog.transaction.usecase.DeleteTransactionUseCase
+import com.dprog.transaction.usecase.GetAllTransactionsUseCase
+import com.dprog.transaction.usecase.GetBalanceSummaryUseCase
+import com.dprog.transaction.usecase.UpdateTransactionUseCase
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -13,5 +18,9 @@ import org.koin.dsl.module
  */
 val transactionDomainModule: Module =
     module {
-        // Register transaction domain use cases here.
+        single { GetAllTransactionsUseCase(get()) }
+        single { AddTransactionUseCase(get()) }
+        single { DeleteTransactionUseCase(get()) }
+        single { GetBalanceSummaryUseCase(get()) }
+        single { UpdateTransactionUseCase(get()) }
     }

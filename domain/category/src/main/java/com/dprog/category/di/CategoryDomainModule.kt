@@ -1,5 +1,8 @@
 package com.dprog.category.di
 
+import com.dprog.category.usecase.GetAllCategoriesUseCase
+import com.dprog.category.usecase.GetCategoriesByTypeUseCase
+import com.dprog.category.usecase.InitializeDefaultCategoriesUseCase
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -13,5 +16,7 @@ import org.koin.dsl.module
  */
 val categoryDomainModule: Module =
     module {
-        // Register category domain use cases here when implemented.
+        single { GetAllCategoriesUseCase(get()) }
+        single { GetCategoriesByTypeUseCase(get()) }
+        single { InitializeDefaultCategoriesUseCase(get()) }
     }

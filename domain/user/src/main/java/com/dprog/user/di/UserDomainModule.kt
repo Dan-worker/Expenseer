@@ -1,5 +1,7 @@
 package com.dprog.user.di
 
+import com.dprog.user.usecase.CreateUserUseCase
+import com.dprog.user.usecase.LoginUserUseCase
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -13,5 +15,6 @@ import org.koin.dsl.module
  */
 val userDomainModule: Module =
     module {
-        // Register user domain use cases here when available.
+        single { CreateUserUseCase(get()) }
+        single { LoginUserUseCase(get()) }
     }
