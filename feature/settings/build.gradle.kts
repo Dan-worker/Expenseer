@@ -2,14 +2,12 @@ plugins {
     id("expenseer.android.library")
     id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.dprog.ui"
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+    namespace = "com.dprog.settings"
+    compileSdk {
+        version = release(36)
     }
 
     buildTypes {
@@ -26,4 +24,8 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Auth feature requires UI components and user domain logic.
+    implementation(project(":core:ui"))
+    implementation(project(":domain:user"))
 }

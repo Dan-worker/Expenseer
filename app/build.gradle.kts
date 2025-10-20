@@ -2,6 +2,7 @@ plugins {
     id("expenseer.android.application")
     id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
+    alias(libs.plugins.kotlin.serialization)
 //    alias(libs.plugins.google.services)
 }
 
@@ -55,6 +56,7 @@ dependencies {
     implementation(project(":feature:home"))
     implementation(project(":feature:analytics"))
     implementation(project(":feature:transaction"))
+    implementation(project(":feature:settings"))
 
     /*    // --- Firebase ---
         implementation(platform(libs.firebase.bom))
