@@ -2,6 +2,7 @@ package com.dprog.expenseer.di
 
 import com.dprog.analytics.di.analyticsFeatureModule
 import com.dprog.auth.di.authCoreModule
+import com.dprog.auth.di.authDataModule
 import com.dprog.auth.di.authFeatureModule
 import com.dprog.category.di.categoryDataModule
 import com.dprog.category.di.categoryDomainModule
@@ -32,6 +33,8 @@ import org.koin.core.module.Module
  */
 val appModules: List<Module> =
     listOf(
+        // App Module
+        appAuthIdsModule,
         // Core modules
         commonModule,
         databaseModule,
@@ -43,6 +46,7 @@ val appModules: List<Module> =
         categoryDataModule,
         transactionDataModule,
         userDataModule,
+        authDataModule,
         // Domain modules
         categoryDomainModule,
         transactionDomainModule,

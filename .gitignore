@@ -25,3 +25,6 @@ local.properties
 
 # Generated folders
 /out/
+
+# Firebase
+/app/google-services.json

@@ -74,6 +74,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [validate-wrapper, guard-pr-base]
     timeout-minutes: 30
+    env:
+      GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -82,6 +84,16 @@ jobs:
           java-version: 17
           cache: gradle
       - run: chmod +x ./gradlew
+
+      # ✅ Decode google-services.json from secret
+      - name: Restore google-services.json
+        run: |
+          if [ -z "$GOOGLE_SERVICES" ]; then
+            echo "⚠️ GOOGLE_SERVICES secret is missing!"
+            exit 1
+          fi
+          echo "$GOOGLE_SERVICES" | base64 --decode > app/google-services.json
+          echo "✅ google-services.json restored to app/"
 
       - name: Build (assembleDebug) + unit tests
         run: |
