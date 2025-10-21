@@ -3,7 +3,7 @@ plugins {
     id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
     alias(libs.plugins.kotlin.serialization)
-//    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":data:user"))
     implementation(project(":data:transaction"))
     implementation(project(":data:category"))
+    implementation(project(":data:auth"))
 
     // --- Feature modules ---
     implementation(project(":feature:auth"))
@@ -58,13 +59,12 @@ dependencies {
     implementation(project(":feature:transaction"))
     implementation(project(":feature:settings"))
 
-    /*    // --- Firebase ---
-        implementation(platform(libs.firebase.bom))
-        // Add Firebase Auth for user authentication.
-        implementation(libs.firebase.auth.ktx)
-        // Add Firestore for cloud data sync.
-        implementation(libs.firebase.firestore.ktx)
-        // Include analytics and crash reporting.
-        implementation(libs.firebase.analytics.ktx)
-        implementation(libs.firebase.crashlytics.ktx)*/
+    // Firebase Auth via BOM
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+
+    // Credential Manager + GoogleID
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
 }

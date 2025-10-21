@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.google.services) apply false
     id("io.gitlab.arturbosch.detekt") version "1.23.8" apply false
     jacoco
 }

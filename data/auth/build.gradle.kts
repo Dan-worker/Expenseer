@@ -1,11 +1,11 @@
 plugins {
     id("expenseer.android.library")
-    id("expenseer.android.compose")
     id("expenseer.kotlin.koin")
 }
 
 android {
     namespace = "com.dprog.auth"
+
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -20,20 +20,25 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
 
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+
+    // Contracts from core module
+    implementation(project(":core:auth"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-
-    // Auth feature requires UI components and user domain logic.
-    implementation(project(":core:ui"))
-    implementation(project(":core:auth"))
-    implementation(project(":domain:user"))
-
-    // Google Sign-In via Credential Manager
-    implementation(libs.androidx.credentials)
-    implementation(libs.androidx.credentials.play.services.auth)
-    implementation(libs.googleid)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
